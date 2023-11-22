@@ -10,7 +10,7 @@ button_text:
     en: 'Button text for the announcement bar.'
 button_link:
   type: string
-  default: '/about'
+  default: '/'
   description:
     en: 'Button Link for the announcement bar.'
 update_version:
