@@ -1,0 +1,32 @@
+.announcement-bar {
+  &__wrapper {
+    background-color: var(--quaternary);
+    color: var(--secondary);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content span {
+    font-size: var(--font-up-1);
+  }
+
+  &__close a {
+    color: var(--secondary);
+  }
+}
+
+// Outlets
+.announcement-bar__wrapper {
+  &.above-main-container {
+    margin-bottom: 1.5rem;
+  }
+}
