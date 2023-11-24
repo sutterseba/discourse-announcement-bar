@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { defaultHomepage } from 'discourse/lib/utilities';
-import cookie, { removeCookie } from 'discourse/lib/cookie';
-import { on } from '@ember/modifier';
 import { htmlSafe } from '@ember/template';
+import cookie, { removeCookie } from 'discourse/lib/cookie';
+import { defaultHomepage } from 'discourse/lib/utilities';
 
 export default class AnnouncementBar extends Component {
   @service site;
@@ -58,8 +58,11 @@ export default class AnnouncementBar extends Component {
   }
 
   get showOnMobile() {
-    if (settings.hide_on_mobile && this.site.mobileView) return false;
-    else return true;
+    if (settings.hide_on_mobile && this.site.mobileView) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   get cookieExpirationDate() {
@@ -70,7 +73,7 @@ export default class AnnouncementBar extends Component {
     const closed_cookie = cookie('discourse_announcement_bar_closed');
     if (closed_cookie) {
       const cookieValue = JSON.parse(closed_cookie);
-      if (cookieValue.name != settings.update_version) {
+      if (cookieValue.name !== settings.update_version) {
         removeCookie('discourse_announcement_bar_closed', { path: '/' });
       } else {
         this.closed = true;
