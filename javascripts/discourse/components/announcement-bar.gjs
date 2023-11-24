@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 import { htmlSafe } from '@ember/template';
 import cookie, { removeCookie } from 'discourse/lib/cookie';
 import { defaultHomepage } from 'discourse/lib/utilities';
+import and from 'truth-helpers/helpers/and';
 
 export default class AnnouncementBar extends Component {
   @service site;
@@ -14,30 +15,26 @@ export default class AnnouncementBar extends Component {
   @tracked closed = false;
 
   <template>
-    {{#if this.showOnRoute}}
-      {{#if this.showOnMobile}}
-        {{#if this.cookieState}}
-          <div class='announcement-bar__wrapper {{settings.plugin_outlet}}'>
-            <div class='announcement-bar__container'>
-              <div class='announcement-bar__content'>
-                <span>{{htmlSafe settings.bar_text}}</span>
-                <a
-                  class='btn btn-primary'
-                  href='{{settings.button_link}}'
-                >{{settings.button_text}}</a>
-              </div>
-              <div class='announcement-bar__close'>
-                <a {{on 'click' this.closeBanner}}>
-                  <svg
-                    class='fa d-icon d-icon-times svg-icon svg-node'
-                    aria-hidden='true'
-                  ><use xlink:href='#times'></use></svg>
-                </a>
-              </div>
-            </div>
+    {{#if (and this.showOnRoute this.showOnMobile this.cookieState)}}
+      <div class='announcement-bar__wrapper {{settings.plugin_outlet}}'>
+        <div class='announcement-bar__container'>
+          <div class='announcement-bar__content'>
+            <span>{{htmlSafe settings.bar_text}}</span>
+            <a
+              class='btn btn-primary'
+              href='{{settings.button_link}}'
+            >{{settings.button_text}}</a>
           </div>
-        {{/if}}
-      {{/if}}
+          <div class='announcement-bar__close'>
+            <a {{on 'click' this.closeBanner}}>
+              <svg
+                class='fa d-icon d-icon-times svg-icon svg-node'
+                aria-hidden='true'
+              ><use xlink:href='#times'></use></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     {{/if}}
   </template>
 
