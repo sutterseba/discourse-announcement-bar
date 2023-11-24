@@ -1,31 +1,31 @@
 bar_text:
   type: string
-  default: 'Exciting news and opportunities!'
+  default: "Exciting news and opportunities!"
   description:
-    en: 'Text for the announcement bar.'
+    en: "Text for the announcement bar."
 button_text:
   type: string
-  default: 'Learn more'
+  default: "Learn more"
   description:
-    en: 'Button text for the announcement bar.'
+    en: "Button text for the announcement bar."
 button_link:
   type: string
-  default: '/'
+  default: "/"
   description:
-    en: 'Button Link for the announcement bar.'
+    en: "Button Link for the announcement bar."
 update_version:
   type: string
-  default: '20231115'
+  default: "20231115"
   description:
-    en: 'Increase this version if you want to make the announcement bar re-appear for users that closed it.'
+    en: "Increase this version if you want to make the announcement bar re-appear for users that closed it."
 show_on:
-  default: 'homepage'
+  default: "homepage"
   type: enum
   choices:
     - homepage
     - latest/top/new/categories
     - everywhere
 plugin_outlet:
-  default: 'above-site-header'
+  default: "above-site-header"
 hide_on_mobile:
   default: false

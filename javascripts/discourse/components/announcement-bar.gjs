@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { defaultHomepage } from 'discourse/lib/utilities';
-import cookie, { removeCookie } from "discourse/lib/cookie";
+import cookie, { removeCookie } from 'discourse/lib/cookie';
 import { on } from '@ember/modifier';
 import { htmlSafe } from '@ember/template';
 
@@ -21,13 +21,17 @@ export default class AnnouncementBar extends Component {
             <div class='announcement-bar__container'>
               <div class='announcement-bar__content'>
                 <span>{{htmlSafe settings.bar_text}}</span>
-                <a class='btn btn-primary' href='{{settings.button_link}}'>{{settings.button_text}}</a>
+                <a
+                  class='btn btn-primary'
+                  href='{{settings.button_link}}'
+                >{{settings.button_text}}</a>
               </div>
               <div class='announcement-bar__close'>
                 <a {{on 'click' this.closeBanner}}>
-                  <svg class='fa d-icon d-icon-times svg-icon svg-node' aria-hidden='true'><use
-                      xlink:href='#times'
-                    ></use></svg>
+                  <svg
+                    class='fa d-icon d-icon-times svg-icon svg-node'
+                    aria-hidden='true'
+                  ><use xlink:href='#times'></use></svg>
                 </a>
               </div>
             </div>
@@ -79,6 +83,9 @@ export default class AnnouncementBar extends Component {
   closeBanner() {
     this.closed = true;
     const bannerState = { name: settings.update_version, closed: 'true' };
-    cookie('discourse_announcement_bar_closed', JSON.stringify(bannerState), { expires: this.cookieExpirationDate, path: '/' });
+    cookie('discourse_announcement_bar_closed', JSON.stringify(bannerState), {
+      expires: this.cookieExpirationDate,
+      path: '/',
+    });
   }
 }
