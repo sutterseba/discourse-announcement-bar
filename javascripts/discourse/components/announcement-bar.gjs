@@ -21,7 +21,7 @@ export default class AnnouncementBar extends Component {
           <div class='announcement-bar__content'>
             <span>{{htmlSafe settings.bar_text}}</span>
             <a
-              class='btn btn-primary'
+              class='btn btn-primary announcement-bar__button'
               href='{{settings.button_link}}'
             >{{settings.button_text}}</a>
           </div>

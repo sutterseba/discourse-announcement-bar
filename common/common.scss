@@ -17,6 +17,11 @@
 
   &__content span {
     font-size: var(--font-up-1);
+    font-weight: bold;
+  }
+
+  &__button {
+    background-color: var(--header_background);
   }
 
   &__close a {
