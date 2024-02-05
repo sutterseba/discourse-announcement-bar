@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 import { htmlSafe } from '@ember/template';
 import cookie, { removeCookie } from 'discourse/lib/cookie';
 import { defaultHomepage } from 'discourse/lib/utilities';
+import icon from 'discourse-common/helpers/d-icon';
 import and from 'truth-helpers/helpers/and';
 
 export default class AnnouncementBar extends Component {
@@ -27,10 +28,7 @@ export default class AnnouncementBar extends Component {
           </div>
           <div class='announcement-bar__close'>
             <a {{on 'click' this.closeBanner}}>
-              <svg
-                class='fa d-icon d-icon-times svg-icon svg-node'
-                aria-hidden='true'
-              ><use xlink:href='#times'></use></svg>
+              {{icon 'times'}}
             </a>
           </div>
         </div>
