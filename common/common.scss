@@ -21,11 +21,12 @@
 
   &__button {
     background-color: var(--tertiary);
+    color: var(--header_primary);
     font-weight: bold;
   }
 
   &__close a {
-    color: var(--secondary);
+    color: var(--header_primary);
   }
 }
 
