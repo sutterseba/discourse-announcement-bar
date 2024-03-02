@@ -19,7 +19,7 @@ update_version:
   description:
     en: "Increase this version if you want to make the announcement bar re-appear for users that closed it."
 show_on:
-  default: "homepage"
+  default: "everywhere"
   type: enum
   choices:
     - homepage
